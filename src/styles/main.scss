@@ -1,78 +1,251 @@
-// Import Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Custom styles for Tourex template
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-// Tourex Base Styles
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: #333;
+  overflow-x: hidden;
 }
 
-// Custom button styles
+// Container and Grid System
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.col-12 { width: 100%; padding: 0 15px; }
+.col-xl-3, .col-lg-3, .col-md-3 { width: 25%; padding: 0 15px; }
+.col-xl-4, .col-lg-4, .col-md-4 { width: 33.333%; padding: 0 15px; }
+.col-xl-6, .col-lg-6, .col-md-6 { width: 50%; padding: 0 15px; }
+.col-xl-9, .col-lg-8, .col-md-8 { width: 75%; padding: 0 15px; }
+
+@media (max-width: 1199px) {
+  .col-xl-3, .col-xl-4, .col-xl-6, .col-xl-9 { width: 100%; }
+}
+
+@media (max-width: 991px) {
+  .col-lg-3, .col-lg-4, .col-lg-6, .col-lg-8 { width: 100%; }
+}
+
+@media (max-width: 767px) {
+  .col-md-3, .col-md-4, .col-md-6, .col-md-8 { width: 100%; }
+}
+
+// Utility Classes
+.text-center { text-align: center; }
+.text-white { color: white !important; }
+.d-flex { display: flex; }
+.align-items-center { align-items: center; }
+.justify-content-end { justify-content: flex-end; }
+.justify-content-between { justify-content: space-between; }
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+.p-relative { position: relative; }
+.d-none { display: none; }
+.d-inline-block { display: inline-block; }
+.overflow-hidden { overflow: hidden; }
+
+@media (min-width: 992px) {
+  .d-lg-block { display: block !important; }
+  .d-lg-none { display: none !important; }
+}
+
+// Spacing
+.pt-100 { padding-top: 100px; }
+.pb-100 { padding-bottom: 100px; }
+.pt-70 { padding-top: 70px; }
+.pb-70 { padding-bottom: 70px; }
+.mb-15 { margin-bottom: 15px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-25 { margin-bottom: 25px; }
+.mb-30 { margin-bottom: 30px; }
+.mb-35 { margin-bottom: 35px; }
+.mb-40 { margin-bottom: 40px; }
+.mb-50 { margin-bottom: 50px; }
+.mb-60 { margin-bottom: 60px; }
+.mb-65 { margin-bottom: 65px; }
+.mr-10 { margin-right: 10px; }
+.ml-50 { margin-left: 50px; }
+
+// Custom Buttons
 .tg-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   background: #560ce3;
   color: white;
-  padding: 12px 24px;
+  padding: 15px 30px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   transition: all 0.3s ease;
+  cursor: pointer;
   
   &:hover {
     background: #4a0bc7;
     color: white;
     text-decoration: none;
+    transform: translateY(-2px);
   }
 }
 
-// Header styles
+// Header Styles
+.header {
+  position: relative;
+  z-index: 1000;
+}
+
 .tg-header-top {
   background: #f8f9fa;
-  padding: 10px 0;
+  padding: 12px 0;
   font-size: 14px;
+  border-bottom: 1px solid #eee;
+  
+  span {
+    margin-right: 25px;
+    color: #666;
+    
+    i {
+      margin-right: 8px;
+      color: #560ce3;
+    }
+  }
+}
+
+.tg-header-top-right {
+  text-align: right;
+}
+
+.tg-header-top-social {
+  a {
+    display: inline-block;
+    margin-left: 10px;
+    color: #666;
+    font-size: 16px;
+    transition: color 0.3s;
+    
+    &:hover {
+      color: #560ce3;
+    }
+  }
 }
 
 .tg-header-middle {
-  padding: 15px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 20px 0;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  
+  .logo img {
+    max-height: 50px;
+  }
 }
 
-// Section spacing
-.pt-100 { padding-top: 100px; }
-.pb-100 { padding-bottom: 100px; }
-.pt-70 { padding-top: 70px; }
-.pb-70 { padding-bottom: 70px; }
-.mb-30 { margin-bottom: 30px; }
-.mb-50 { margin-bottom: 50px; }
-.mb-60 { margin-bottom: 60px; }
-
-// Section titles
-.tg-section-title-main {
-  font-size: 42px;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #333;
-  margin-bottom: 15px;
+.main-menu {
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      margin: 0 25px;
+      
+      a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        transition: color 0.3s;
+        
+        &:hover {
+          color: #560ce3;
+        }
+      }
+    }
+  }
 }
 
-.tg-section-subtitle {
-  color: #560ce3;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: block;
-  margin-bottom: 10px;
+.header-right {
+  gap: 20px;
+  
+  .header-cart,
+  .header-login {
+    a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      
+      &:hover {
+        color: #560ce3;
+      }
+    }
+  }
+  
+  .header-cart {
+    position: relative;
+    
+    span {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #560ce3;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }
 
-// Hero section
+// Section Titles
+.tg-section-title {
+  .tg-section-subtitle {
+    color: #560ce3;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .tg-section-title-main {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #333;
+    margin: 0;
+  }
+}
+
+// Hero Section
 .tg-hero-area {
   position: relative;
-  padding: 200px 0 150px;
+  padding: 250px 0 150px;
   background-size: cover;
   background-position: center;
   color: white;
@@ -94,47 +267,206 @@ body {
   }
 }
 
-.tg-hero-title {
-  font-size: 64px;
-  font-weight: 700;
-  line-height: 1.1;
-  text-align: center;
+.tg-hero-content {
+  margin-bottom: 100px;
+  
+  .tg-hero-badge {
+    span {
+      background: rgba(255,255,255,0.15);
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      backdrop-filter: blur(10px);
+    }
+  }
+  
+  .tg-hero-title {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+    text-transform: capitalize;
+  }
+  
+  .tg-hero-text {
+    font-size: 18px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .tg-hero-price {
+    .tg-hero-price-text {
+      font-size: 18px;
+      margin-right: 15px;
+    }
+    
+    .tg-hero-price-amount {
+      font-size: 48px;
+      font-weight: 700;
+      color: #ff6b35;
+      
+      sup {
+        font-size: 24px;
+        top: -20px;
+      }
+      
+      sub {
+        font-size: 18px;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+// Booking Form
+.tg-hero-form {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.tg-booking-form-nav {
+  margin-bottom: 30px;
+  
+  .nav-tabs {
+    border: none;
+    display: flex;
+    gap: 5px;
+    
+    .nav-item {
+      .nav-link {
+        background: #f8f9fa;
+        border: none;
+        color: #666;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s;
+        cursor: pointer;
+        
+        &.active {
+          background: #560ce3;
+          color: white;
+        }
+        
+        i {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
+
+.tg-booking-form-input {
+  margin-bottom: 20px;
+  
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  .form-control,
+  .form-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+    
+    &:focus {
+      outline: none;
+      border-color: #560ce3;
+    }
+  }
+}
+
+// Cards and Components
+.tg-destination-item,
+.tg-tour-item,
+.tg-testimonial-item,
+.tg-blog-item {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  }
 }
 
 // Footer
 .tg-footer-area {
   background: #1a1a1a;
-  color: white;
+  color: #ccc;
   
-  a {
-    color: #ccc;
-    text-decoration: none;
+  .tg-footer-top {
+    border-bottom: 1px solid #333;
+  }
+  
+  .tg-footer-widget {
+    h4 {
+      color: white;
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
     
-    &:hover {
-      color: #560ce3;
+    ul {
+      list-style: none;
+      padding: 0;
+      
+      li {
+        margin-bottom: 12px;
+        
+        a {
+          color: #ccc;
+          text-decoration: none;
+          transition: color 0.3s;
+          
+          &:hover {
+            color: #560ce3;
+          }
+        }
+      }
     }
   }
-}
-
-// Form styles
-.tg-booking-form {
-  background: white;
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-// Cards and items
-.tg-destination-item,
-.tg-tour-item,
-.tg-blog-item {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
   
-  &:hover {
-    transform: translateY(-5px);
+  .tg-footer-logo img {
+    max-height: 40px;
+    filter: brightness(0) invert(1);
+  }
+  
+  .tg-footer-social {
+    margin-top: 20px;
+    
+    a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: #333;
+      color: white;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      transition: all 0.3s;
+      
+      &:hover {
+        background: #560ce3;
+      }
+    }
+  }
+  
+  .tg-footer-bottom {
+    padding: 25px 0;
+    text-align: center;
+    font-size: 14px;
   }
 }

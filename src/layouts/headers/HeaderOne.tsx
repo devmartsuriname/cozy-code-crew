@@ -34,7 +34,10 @@ const HeaderOne = () => {
             <div className="col-xl-3 col-lg-2 col-md-6 col-6">
               <div className="logo">
                 <Link to="/">
-                  <img src="/assets/img/logo/logo.png" alt="Tourex" />
+                  <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="150" height="40" rx="8" fill="#560CE3"/>
+                    <text x="75" y="25" textAnchor="middle" fill="white" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="700">Tourex</text>
+                  </svg>
                 </Link>
               </div>
             </div>
